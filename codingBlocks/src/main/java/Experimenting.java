@@ -1,13 +1,6 @@
 import java.util.*;
 
 
-
-//"())()(()()()()()()()()()))))))(()()()()()()))((((((())))))((()()()()))(((((((((((((()))))))))))"
-
-//()(()()()()()()()()())
-//(()()()()()())
-//(((((())))))((()()()()))
-
 public class Experimenting{
 
     public static void main(String[] args) {
@@ -16,26 +9,18 @@ public class Experimenting{
 
     public void run(){
 
-        Set<Integer> s = new HashSet<>();
+        String s = "b";
 
+        StringBuilder sb = new StringBuilder();
 
-        s.add(1);
-        s.add(2);
+        sb.append(s.charAt(0)-'a');
+        sb.append(s.charAt(0)-'a');
 
-//        Iterator itr = s.iterator();
+        System.out.println(sb);
 
-//        System.out.println(itr.next());
-//        System.out.println(itr.hasNext());
-//
-//        while( itr.hasNext() ){
-//            System.out.println(itr.next());
-//        }
+//        System.out.println(String.valueOf(s.charAt(0)-'a'));
 
     }
 
-    public int func(){
-        int a = 0;
-        return a = 100;
-    }
 
 }
