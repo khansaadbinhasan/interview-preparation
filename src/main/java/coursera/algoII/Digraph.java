@@ -90,6 +90,14 @@ public class Digraph {
     }
 
     public Digraph reverse(){
-        return null;
+        Digraph reversedGraph = new Digraph(this.V());
+
+        for (int i = 0; i < this.V(); ++i) {
+            for (Integer neighbor : adj[i]) {
+                reversedGraph.addEdge(neighbor, i);
+            }
+        }
+
+        return reversedGraph;
     }
 }

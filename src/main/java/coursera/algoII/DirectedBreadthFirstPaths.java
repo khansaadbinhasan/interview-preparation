@@ -1,24 +1,36 @@
 package coursera.algoII;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
-public class DirectedDepthFirstPaths {
+public class DirectedBreadthFirstPaths {
 
     private boolean[] marked;
     private int[] edgeTo;
     private int s;
 
-    public DirectedDepthFirstPaths(Digraph G, int s){
+    public DirectedBreadthFirstPaths(Digraph G, int s){
         marked = new boolean[G.V()];
-        dfs(G, s);
+        edgeTo = new int[G.V()];
+
+        bfs(G, s);
     }
 
-    private void dfs(Digraph G, int v){
-        marked[v] = true;
+    private void bfs(Digraph G, int s){
+        Queue<Integer> q = new LinkedList<>();
+        q.add(s);
+        marked[s] = true;
 
-        for( int w: G.adj(v) ){
-            if( !marked[w] ) {
-                dfs(G, w);
+        while( !q.isEmpty() ){
+            int v = q.poll();
+
+            for( int w: G.adj(v) ){
+                if( !marked[w] ) {
+                    q.add(w);
+                    edgeTo[w] = v;
+                    marked[w] = true;
+                }
             }
         }
     }
@@ -64,8 +76,5 @@ public class DirectedDepthFirstPaths {
         return pathsStr.reverse().toString();
     }
 
-    public boolean visited(int v){
-        return marked[v];
-    }
 
 }
