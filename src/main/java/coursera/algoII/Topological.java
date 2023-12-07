@@ -1,5 +1,8 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.DirectedEdge;
+import coursera.algoII.datastructures.EdgeWeightedDiGraph;
+
 import java.util.Collections;
 import java.util.Stack;
 

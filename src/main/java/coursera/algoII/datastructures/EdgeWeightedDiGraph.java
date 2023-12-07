@@ -1,4 +1,4 @@
-package coursera.algoII;
+package coursera.algoII.datastructures;
 
 import java.io.InputStream;
 import java.util.HashSet;
@@ -30,19 +30,6 @@ public class EdgeWeightedDiGraph {
     public Iterable<DirectedEdge> adj(int v){
         return adj[v];
     }
-
-//    public Iterable<DirectedEdge> edges() {
-//        Set<DirectedEdge> edges = new HashSet<>();
-//        for (int v = 0; v < V; v++) {
-//            for (DirectedEdge e : adj[v]) {
-//                if (e.other(v) > v) {
-//                    edges.add(e);
-//                }
-//            }
-//        }
-//        return edges;
-//    }
-
 
     public int V(){
         return V;

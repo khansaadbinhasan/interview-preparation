@@ -1,5 +1,7 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.Graph;
+
 public class Paths {
 
     private Graph G;

@@ -1,5 +1,7 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.Digraph;
+
 import java.util.Stack;
 
 public class DirectedDepthFirstPaths {

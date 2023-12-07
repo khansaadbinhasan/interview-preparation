@@ -1,4 +1,4 @@
-package coursera.algoII;
+package coursera.algoII.datastructures;
 
 import java.util.NoSuchElementException;
 

@@ -1,5 +1,7 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.DirectedEdge;
+
 //TODO COMPLETE THIS ALGORITHM
 public class BellmanFord {
 

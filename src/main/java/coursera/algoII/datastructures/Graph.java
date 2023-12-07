@@ -1,4 +1,4 @@
-package coursera.algoII;
+package coursera.algoII.datastructures;
 
 import java.io.InputStream;
 import java.util.HashSet;
@@ -22,20 +22,20 @@ public class Graph {
 
     }
 
-    void addEdge(int v, int w){
+    public void addEdge(int v, int w){
         adj[v].add(w);
         adj[w].add(v);
     }
 
-    Iterable<Integer> adj(int v){
+    public Iterable<Integer> adj(int v){
         return adj[v];
     }
 
-    int V(){
+    public int V(){
         return V;
     }
 
-    int E(){
+    public int E(){
         return 0;
     }
 

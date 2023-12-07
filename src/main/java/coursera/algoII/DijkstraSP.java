@@ -1,5 +1,9 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.DirectedEdge;
+import coursera.algoII.datastructures.EdgeWeightedDiGraph;
+import coursera.algoII.datastructures.IndexMinPQ;
+
 import java.util.Stack;
 
 public class DijkstraSP {

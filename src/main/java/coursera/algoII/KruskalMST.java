@@ -1,5 +1,8 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.Edge;
+import coursera.algoII.datastructures.EdgeWeightedGraph;
+
 import java.util.*;
 
 public class KruskalMST {

@@ -1,5 +1,8 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.Edge;
+import coursera.algoII.datastructures.EdgeWeightedGraph;
+
 public class MST {
 
     public MST(EdgeWeightedGraph G){

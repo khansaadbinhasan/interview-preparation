@@ -1,5 +1,7 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.*;
+
 public class ExampleRuns {
 
     public static void main(String[] args) {
@@ -10,8 +12,17 @@ public class ExampleRuns {
 //        new ExampleRuns().runKosaraju();
 //        new ExampleRuns().runKruskal();
 //        new ExampleRuns().runLazyPrim();
-        new ExampleRuns().runShortestPath();
-        new ExampleRuns().runShortestPathAcyclic();
+//        new ExampleRuns().runShortestPath();
+//        new ExampleRuns().runShortestPathAcyclic();
+        new ExampleRuns().runFordFulkerson();
+    }
+
+    private void runFordFulkerson() {
+//        FlowNetwork graphForFordFulkerson = getGraphForFordFulkerson();
+//        FordFulkerson fordFulkerson = new FordFulkerson(graphForFordFulkerson, 0, 5);
+
+        FordFulkerson fordFulkerson = new FordFulkerson(getGraphForFordFulkersonII(), 0, 7);
+        System.out.println("expected flow 28, actual: " + fordFulkerson.value());
     }
 
     public void runShortestPathAcyclic(){
@@ -284,6 +295,63 @@ public class ExampleRuns {
     }
 
 
+    public FlowNetwork getGraphForFordFulkerson(){
+
+        FlowNetwork g = new FlowNetwork(8);
+
+        g.addEdge(new FlowEdge(0, 1, 1));
+        g.addEdge(new FlowEdge(0, 2, 1));
+
+        g.addEdge(new FlowEdge(1, 0, 9));
+        g.addEdge(new FlowEdge(1, 2, 4));
+
+        g.addEdge(new FlowEdge(2, 0, 4));
+        g.addEdge(new FlowEdge(2, 4, 8));
+        g.addEdge(new FlowEdge(2, 1, 8));
+
+        g.addEdge(new FlowEdge(3, 1, 9));
+        g.addEdge(new FlowEdge(3, 4, 15));
+        g.addEdge(new FlowEdge(3, 5, 1));
+
+        g.addEdge(new FlowEdge(4, 1, 4));
+        g.addEdge(new FlowEdge(4, 5, 6));
+
+        g.addEdge(new FlowEdge(5, 4, 4));
+        g.addEdge(new FlowEdge(5, 3, 9));
+
+        return g;
+    }
+
+    public FlowNetwork getGraphForFordFulkersonII(){
+
+        FlowNetwork g = new FlowNetwork(8);
+
+        g.addEdge(new FlowEdge(0, 1, 10));
+        g.addEdge(new FlowEdge(0, 2, 5));
+        g.addEdge(new FlowEdge(0, 3, 15));
+
+        g.addEdge(new FlowEdge(1, 2, 4));
+        g.addEdge(new FlowEdge(1, 5, 15));
+        g.addEdge(new FlowEdge(1, 4, 9));
+
+        g.addEdge(new FlowEdge(2, 3, 4));
+        g.addEdge(new FlowEdge(2, 5, 8));
+
+        g.addEdge(new FlowEdge(3, 6, 16));
+
+        g.addEdge(new FlowEdge(4, 5, 15));
+        g.addEdge(new FlowEdge(4, 7, 10));
+
+        g.addEdge(new FlowEdge(5, 7, 10));
+        g.addEdge(new FlowEdge(5, 6, 15));
+
+        g.addEdge(new FlowEdge(6, 2, 6));
+        g.addEdge(new FlowEdge(6, 7, 10));
+
+        return g;
+    }
+
+
     public EdgeWeightedDiGraph getGraphForDijkstra(){
 
         EdgeWeightedDiGraph g = new EdgeWeightedDiGraph(8);
@@ -313,6 +381,5 @@ public class ExampleRuns {
 
         return g;
     }
-
 
 }

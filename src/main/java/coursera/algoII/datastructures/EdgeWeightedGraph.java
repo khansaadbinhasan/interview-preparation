@@ -1,4 +1,4 @@
-package coursera.algoII;
+package coursera.algoII.datastructures;
 
 import java.io.InputStream;
 import java.util.*;
