@@ -6,7 +6,6 @@ import coursera.algoII.datastructures.FlowNetwork;
 import java.util.LinkedList;
 import java.util.Queue;
 
-//TODO RUN THIS
 public class FordFulkerson {
 
     private boolean[] marked;
