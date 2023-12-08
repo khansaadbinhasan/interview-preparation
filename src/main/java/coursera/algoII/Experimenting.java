@@ -1,5 +1,7 @@
 package coursera.algoII;
 
+import coursera.algoII.datastructures.Graph;
+
 import java.io.IOException;
 import java.io.InputStream;
 

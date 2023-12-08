@@ -1,6 +1,7 @@
 package coursera.algoII;
 
-import java.util.Collection;
+import coursera.algoII.datastructures.Digraph;
+
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
