@@ -30,7 +30,7 @@ public class L33SearchInRotatedArray {
     }
 
     public void run(){
-        System.out.println(search3(new int[]{1}, 0));
+        System.out.println(search4(new int[]{7,8,1,2,3,4,5,6}, 2));
     }
 
     public int search(int[] nums, int target) {
@@ -106,6 +106,34 @@ public class L33SearchInRotatedArray {
                 if( target > nums[mid] && target <= nums[nums.length-1] ) l = mid+1;
                 else r = mid-1;
             }
+        }
+
+        return -1;
+    }
+
+    //4,5,6,7,0,1,2
+    //0
+    //4,5,6,7,0,1,2
+    //4
+    public int search4(int[] nums, int target) {
+
+        int start = 0;
+        int end = nums.length-1;
+
+        while( start <= end ){
+            int mid = (start+end+1)/2;
+
+            if( nums[mid] == target ) return mid;
+
+
+            if(
+                    (nums[mid] > target && nums[start] > target) ||
+                    (nums[mid] < target && nums[start] > target) ||
+                    (nums[mid] < target && target <= nums[end])
+            ){
+                start = mid+1;
+            }
+            else end = mid-1;
         }
 
         return -1;
