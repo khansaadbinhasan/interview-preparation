@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.blind75;
 
 import java.util.*;
 
