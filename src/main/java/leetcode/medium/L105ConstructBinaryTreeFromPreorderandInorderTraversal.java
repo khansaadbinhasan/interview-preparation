@@ -65,4 +65,38 @@ public class L105ConstructBinaryTreeFromPreorderandInorderTraversal {
 
         return -1;
     }
+
+
+
+    public TreeNode buildTree2(int[] preorder, int[] inorder) {
+        if( preorder.length == 0 || inorder.length == 0 ) return null;
+
+        TreeNode root = new TreeNode(preorder[0]);
+
+        int ind = getIndex(inorder, root.val);
+
+        root.left = buildTree2(Arrays.copyOfRange(preorder, 1, ind+1), Arrays.copyOfRange(inorder, 0, ind));
+        root.right = buildTree2(Arrays.copyOfRange(preorder, ind+1, preorder.length), Arrays.copyOfRange(inorder, 1+ind, inorder.length));
+
+        return root;
+    }
+
+    private int getIndex(int[] inorder, int val){
+        for( int i = 0; i < inorder.length; i++ ){
+            if( inorder[i] == val ) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        new L105ConstructBinaryTreeFromPreorderandInorderTraversal().run();
+    }
+
+    public void run(){
+        buildTree2(new int[]{3,9,20,15,7}, new int[]{9,3,15,20,7});
+    }
+
 }
