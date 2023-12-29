@@ -1,3 +1,5 @@
 /codingBlocks/.idea/*
 /codingBlocks/target/*
 /codingBlocks/codingBlocks.iml
+.idea/*
+target/*

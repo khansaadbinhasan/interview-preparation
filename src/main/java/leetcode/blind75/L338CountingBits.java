@@ -1,7 +1,4 @@
-package leetcode.easy;
-
-import java.util.Comparator;
-import java.util.PriorityQueue;
+package leetcode.blind75;
 
 //2
 //5
@@ -31,6 +28,6 @@ public class L338CountingBits {
         return count;
     }
 
-
+    
 
 }

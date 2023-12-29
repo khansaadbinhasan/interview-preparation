@@ -1,6 +1,7 @@
-package leetcode.medium;
+package leetcode.blind75;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 //[[1,1,1],[1,0,1],[1,1,1]]
 //[[0,1,2,0],[3,4,5,2],[1,3,1,5]]

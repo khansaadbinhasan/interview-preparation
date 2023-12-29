@@ -1,8 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-
+import java.util.*;
 
 
 public class Experimenting {
@@ -12,23 +8,54 @@ public class Experimenting {
     }
 
     public void run() {
-        List<Integer> arr = new ArrayList<>(5);
+//        String s = "abcdefgdsjkfhjdashlfkjsdh";
+//        CharSequence charSequence = s.subSequence(0,5);
+//
+//        StringBuilder sb = new StringBuilder(s);
+//        System.out.println("sb " + sb);
+//        System.out.println("sb.delete(1,2) " + sb.delete(1,2));
+//        System.out.println("sb.reverse() " + sb.reverse());
+//        System.out.println("sb.deleteCharAt(0) " + sb.deleteCharAt(0));
+//        System.out.println("sb.indexOf(\"s\") " + sb.indexOf("s"));
+//        System.out.println("sb.insert(5,3) " + sb.insert(5,3));
+//        System.out.println("sb.lastIndexOf(\"sd\") " + sb.lastIndexOf("sd"));
+//        System.out.println("sb.replace(0,2,\"0\") " + sb.replace(0,2,"0"));
+//
+//        System.out.println(charSequence);
 
-        System.out.println("Integer.MAX_VALUE".hashCode());
-        System.out.println("Integer".hashCode());
-        System.out.println("thish ioahkfahskdhf s fjdhfkjdshf kjdsahf kdjhfakjsdhfkjh".hashCode());
+//        Random r = new Random();
+//
+//        for (int i = 0; i < 100; i++) {
+//            System.out.println(r.nextInt(5));
+//        }
 
 
-        LinkedList<Integer> lst = new LinkedList<>();
+        List<Integer> list = Arrays.asList(new Integer[]{1, 2, 3});
 
-        lst.add(1);
-        lst.add(2);
+        String[] array = {"apple", "banana", "orange"};
 
-        System.out.println(lst.remove(0));
-        System.out.println(lst.indexOf(2));
+        // Convert array to List using Arrays.asList()
+        List<String> listFromArray = Arrays.asList(array);
 
     }
-}
+
+    public void update(int[][] a){
+        a[0][0] = -1;
+        a[0][1] = -1;
+    }
+
+    public int[][] clone(int[][] marked){
+        int[][] a = new int[marked.length][marked[0].length];
+
+        for (int i = 0; i < marked.length; i++) {
+            for (int j = 0; j < marked[0].length; j++) {
+                a[i][j] = marked[i][j];
+            }
+        }
+
+        return a;
+    }
+    }
 
 
 
