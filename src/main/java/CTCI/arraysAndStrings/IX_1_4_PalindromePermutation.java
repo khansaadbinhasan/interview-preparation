@@ -9,7 +9,10 @@ public class IX_1_4_PalindromePermutation {
     }
 
     public void run(){
-        System.out.println(isPalindromePermutation("Tact Coa"));
+        System.out.println(isPalindromePermutation2("Tact Coa"));
+        System.out.println(isPalindromePermutation2("Rats live on no evil star"));
+        System.out.println(isPalindromePermutation2("Rats live on no evil stars"));
+        System.out.println(isPalindromePermutation2("Rats live on no evil starsp"));
     }
 
     public boolean isPalindromePermutation(String s){
@@ -49,6 +52,51 @@ public class IX_1_4_PalindromePermutation {
 
     public String makeAllSmall(String s){
         return s.trim().replaceAll(" ", "").toLowerCase();
+    }
+
+
+    public boolean isPalindromePermutation2(String s){
+        s = makeAllSmall(s);
+
+        int bitVector = createBitVector(s);
+
+        boolean isOdd = false;
+
+        while( bitVector != 0 ){
+            if( ( bitVector & 1 ) == 1 ) {
+                if( isOdd ) return false;
+                isOdd = true;
+            }
+
+            bitVector = bitVector >> 1;
+        }
+
+        return true;
+    }
+
+    public int createBitVector(String phrase){
+        int bitVector = 0;
+
+        for( char c: phrase.toCharArray() ){
+            bitVector = toggle(bitVector, c-'a');
+        }
+
+        return bitVector;
+    }
+
+    public int toggle(int bitVector, int index){
+        if( index < 0 ) return bitVector;
+
+        int mask = 1 << index;
+        if( (bitVector & mask) == 0 ){
+            bitVector |= mask;
+        }
+
+        else {
+            bitVector &= ~mask;
+        }
+
+        return bitVector;
     }
 
 }

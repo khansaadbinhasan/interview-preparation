@@ -13,6 +13,7 @@ public class IX_1_6_String_Compression {
     public void run(){
 
         System.out.println("Compressed String is: " + compressString("aaaaabbbbaaaabbddc"));
+        System.out.println("Compressed String is: " + compressString("abcd"));
 
     }
 
