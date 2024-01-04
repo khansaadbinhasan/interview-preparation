@@ -18,6 +18,8 @@ public class L46Permutations {
         nums.add(1); nums.add(2); nums.add(3);
 
         System.out.println(permute(nums));
+
+        System.out.println(permute(new int[]{1,2,3}));
     }
 
     public List<List<Integer>> permute(int[] nums) {
@@ -32,8 +34,10 @@ public class L46Permutations {
 
     }
 
+    List<List<Integer>> permute = new LinkedList<>();
+
     public List<List<Integer>> permute(List<Integer> nums){
-        List<List<Integer>> permute = new LinkedList<>();
+        if( nums.size() == 0 ) return new LinkedList<>();
         if( nums.size() == 1 ) {
             List<List<Integer>> lst = new LinkedList<>();
             lst.add(new LinkedList<>(nums));
@@ -42,13 +46,12 @@ public class L46Permutations {
 
         for( int i = 0; i < nums.size(); i++ ){
             int n = nums.remove(0);
-            List<List<Integer>> perms = new LinkedList<>(permute(nums));
+            permute = new LinkedList<>(permute(nums));
 
-            for( List<Integer> perm: perms ){
+            for( List<Integer> perm: permute ){
                 perm.add(n);
             }
 
-            permute.addAll(perms);
             nums.add(n);
         }
 

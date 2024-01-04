@@ -139,5 +139,55 @@ public class L236LowestCommonAncestor {
 // //         return map.get(key);
 // //     }
 
+//     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+//         // if( root == null ) return TreeNode();
 
+// 	if( root.val == p.val || root.val == q.val )
+// return root;
+
+
+// 	boolean isInLeftP = isInTree(root.left, p);
+// boolean isInLeftQ = isInTree(root.left, q);
+
+// 	// node 1 is in left tree and node2 is in right tree
+// 	if( (isInLeftP && !isInLeftQ) || (!isInLeftP && isInLeftQ) ){
+// 	return root;
+// }
+
+// // node1 is in left and node2 is in left
+// if( isInLeftP && isInLeftQ ){
+// 		return lowestCommonAncestor(root.left, p, q);
+// }
+
+// //nod1 is in right tree and node2 is in right tree
+// if( !isInLeftP && !isInLeftQ ){
+// 	return lowestCommonAncestor(root.right, p, q);
+// }
+
+// return null;
+// }
+
+// //Check if node is in the left of root
+// public boolean isInTree(TreeNode root, TreeNode node){
+// 	if( root == null ) return false;
+
+// 	if( root.val == node.val ) return true;
+// 	return isInTree(root.left, node) || isInTree(root.right, node);
+// }
+
+
+    public TreeNode lowestCommonAncestor7(TreeNode root, TreeNode p, TreeNode q){
+//Find min parent for left and right —> If left is null return right or else left
+        if( root == null ) return null;
+        //if( root.left == null && root.right == null ) return null;
+        if( root.val == p.val || root.val == q.val ) return root;
+
+        TreeNode leftMin = lowestCommonAncestor7( root.left, p, q );
+        TreeNode rightMin = lowestCommonAncestor7( root.right, p, q );
+
+        if( leftMin == null ) return rightMin;
+        else if( rightMin == null ) return leftMin;
+
+        return root;
+    }
 }

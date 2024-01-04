@@ -24,7 +24,8 @@ public class L733FloodFill {
     }
 
     public void run(){
-        int[][] ans = floodFill(new int[][]{{1,1,1},{1,1,0},{1,0,1}}, 1, 1, 2);
+//        int[][] ans = floodFill(new int[][]{{1,1,1},{1,1,0},{1,0,1}}, 1, 1, 2);
+        int[][] ans = floodFill(new int[][]{{0,0,0},{0,0,0},{0,0,0}}, 0, 0, 0);
 
         for (int i = 0; i < ans.length; i++) {
             for (int j = 0; j < ans[0].length; j++) {
@@ -73,5 +74,23 @@ public class L733FloodFill {
 
         return copiedImage;
 
+    }
+
+    public int[][] floodFill2(int[][] image, int sr, int sc, int color) {
+        fill(image, sr, sc, color, image[sr][sc]);
+        return image;
+    }
+
+    public void fill(int[][] colors, int x, int y, int color, int startColor){
+        if( x < 0 || y < 0 || x == colors.length || y == colors[0].length ) return;
+
+        if( colors[x][y] != startColor || colors[x][y] == color ) return;
+
+        colors[x][y] = color;
+
+        fill(colors, x+1, y, color, startColor);
+        fill(colors, x-1, y, color, startColor);
+        fill(colors, x, y+1, color, startColor);
+        fill(colors, x, y-1, color, startColor);
     }
 }

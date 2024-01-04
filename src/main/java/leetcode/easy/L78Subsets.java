@@ -37,4 +37,29 @@ public class L78Subsets {
         return subsetList;
     }
 
+    public List<List<Integer>> subsetsNoReps(int[] nums) {
+
+        List<List<Integer>> powerSet = new LinkedList<>();
+
+        //[1,2,3] --> 8
+        //[], [1], [2], [3], [1,2], [2,3], [1,3], [1,2,3]
+        powerSet.add(new LinkedList<>());
+
+        for (int i = 0; i < nums.length; i++) {
+            List<List<Integer>> currPowerSet = new LinkedList<>();
+
+            for( List<Integer> set: powerSet ){
+                List<Integer> set1 = new LinkedList<>(set);
+                List<Integer> set2 = new LinkedList<>(set);
+                currPowerSet.add(set1);
+                set2.add(nums[i]);
+                currPowerSet.add(set2);
+            }
+
+            powerSet = currPowerSet;
+        }
+
+        return powerSet;
+    }
+
 }
