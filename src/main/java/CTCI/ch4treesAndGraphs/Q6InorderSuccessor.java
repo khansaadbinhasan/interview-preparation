@@ -8,6 +8,7 @@ public class Q6InorderSuccessor {
         TreeNode left;
         TreeNode right;
         TreeNode parent;
+        boolean visited;
 
         TreeNode() {}
 
@@ -17,6 +18,7 @@ public class Q6InorderSuccessor {
             this.val = val;
             this.left = left;
             this.right = right;
+            this.visited = false;
         }
     }
 
@@ -47,6 +49,41 @@ public class Q6InorderSuccessor {
 
         return n;
     }
+
+
+
+
+    public TreeNode successor(TreeNode root){
+        if( root == null ) return null;
+
+        TreeNode successor = successor(root.left);
+
+        if( successor != null && !root.left.visited ) {
+            return successor;
+        }
+        if( !root.visited ) return root;
+        TreeNode right = successor(root.right);
+        if( right != null ) return right;
+
+        return successor(root.parent);
+    }
+
+    public static void main(String[] args) {
+        new Q6InorderSuccessor().run();
+    }
+
+    public void run(){
+        TreeNode root = new TreeNode(1);
+        root.parent = null; root.left = new TreeNode(2); root.right = new TreeNode(3);
+        root.left.parent = root; root.right.parent = root;
+        System.out.println(successor(root).val + " --> 2");
+        System.out.println(successor(root.left).val + " --> 2");
+        System.out.println(successor(root.right).val + " --> 3");
+
+    }
+
+
+
 
 
 

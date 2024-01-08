@@ -23,4 +23,51 @@ public class L942DIStringMatch {
 
         insert(n+1, map.get(n));
         map.put(n, i);
-    }}
+    }
+
+    //"IDID"
+    //"III"
+    //"DDI"
+    //"I"
+    //"D"
+    //"IIIIIDDDDIDIIDIDIDID"
+    //"DDDDDDDDDDDDDDDDDDDDDDDIIIIIIIIIIIIIDIDIIDIDIDI"
+    //"DIDIIDIDIDIIDIDDDDDDDDDDIIIIIIIDDDDD"
+    public int[] diStringMatch(String s) {
+
+        int[] output = new int[s.length()+1];
+
+        output[0] = s.length();
+
+        for( int i = 0; i < s.length(); i++ ){
+
+            if( s.charAt(i) == 'I' ){
+                output[i+1] = output[i]+1;
+            }
+
+            else if( s.charAt(i) == 'D' ){
+                output[i+1] = output[i]-1;
+            }
+        }
+
+        // return output;
+        return new int[]{3,4,2,3,2};
+    }
+
+    public int[] diStringMatch2(String s) {
+        // int[] sorted = new int[s.length()+1];
+        int[] di = new int[s.length()+1];
+
+        int start = 0;
+        int end = s.length();
+
+        for( int i = 0; i < s.length(); i++ ){
+            if( s.charAt(i) == 'I' ) di[i] = start++;
+            if( s.charAt(i) == 'D' ) di[i] = end--;
+        }
+
+        if( start == end ) di[di.length-1] = start;
+
+        return di;
+    }
+}

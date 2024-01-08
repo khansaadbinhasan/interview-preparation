@@ -75,4 +75,24 @@ public class L572SubtreeOfAnotherTree {
         return ( root.val == subRoot.val ) && isEqual(root.left, subRoot.left) && isEqual(root.right, subRoot.right);
     }
 
+    public boolean isSubtree5(TreeNode root, TreeNode subRoot) {
+        StringBuilder sb1 = constructPreorder(root, new StringBuilder());
+        StringBuilder sb2 = constructPreorder(subRoot, new StringBuilder());
+
+        System.out.println(sb1);
+        System.out.println(sb2);
+
+        return sb1.indexOf(sb2.toString()) == -1? false: true;
+    }
+
+    public StringBuilder constructPreorder(TreeNode root, StringBuilder s){
+        if( root == null ) return s.append("N");
+
+        s.append("s").append(root.val).append(",");
+        constructPreorder(root.left, s);
+        constructPreorder(root.right, s);
+
+        return s;
+    }
+
 }

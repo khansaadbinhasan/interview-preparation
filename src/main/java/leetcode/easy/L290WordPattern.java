@@ -16,6 +16,8 @@ import java.util.*;
 //"this is one word that is being stretched too long dub dub"
 //"all"
 //"this thisa thisa"
+//"abba"
+//"dog dog dog dog"
 public class L290WordPattern {
 
     public static void main(String[] args) {

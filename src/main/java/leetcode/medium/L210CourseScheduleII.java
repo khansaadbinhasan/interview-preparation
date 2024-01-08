@@ -258,4 +258,85 @@ public class L210CourseScheduleII {
     }
 
 
+//    Map<Integer, List<Integer>> map = new HashMap<>();//{{1->0},{2->0},{3->[1,2]}}
+//    int numCourses;
+//    int[][] prerequisites;
+//    Set<Integer> vis = new HashSet<>();
+//
+//    public int[] findOrder(int numCourses, int[][] prerequisites) {
+//        this.numCourses = numCourses;
+//        this.prerequisites = prerequisites;
+//
+//        createMap(prerequisites);
+//        if(hasCycle()) return new int[]{};
+//
+//        vis.clear();
+//        int[] arr = new int[numCourses];
+//        int i = 0;
+//
+//        for( int key: map.keySet() ){
+//            if( !vis.contains(key) ) {
+//                List<Integer> tops = topSort(key, new LinkedList<>());
+//
+//                for(int t: tops){
+//                    arr[i++] = t;
+//                }
+//            }
+//        }
+//
+//        return arr;
+//    }
+//
+//    public void createMap(int[][] prerequisites){
+//        for( int i = 0; i < numCourses; i++ ){
+//            if( !map.containsKey(i) ) map.put(i, new ArrayList<>());
+//        }
+//
+//        for( int i = 0; i < prerequisites.length; i++ ){
+//            map.get(prerequisites[i][0]).add(prerequisites[i][1]);
+//        }
+//    }
+//
+//    public boolean hasCycle(){
+//        for( int key: map.keySet() ) {
+//            if( isCycle(key, key) ){
+//                return true;
+//            }
+//            vis.clear();
+//        }
+//
+//        return false;
+//    }
+//
+//    public boolean isCycle(int node, int startNode){
+//        if( node == startNode && vis.contains(node) ) return true;
+//        if( vis.contains(node) ) return false;
+//
+//        vis.add(node);
+//
+//        List<Integer> deps = map.get(node);
+//
+//        for( int dep: deps ){
+//            if( isCycle(dep, startNode) ) return true;
+//        }
+//
+//        return false;
+//    }
+//
+//    public List<Integer> topSort(int node, List<Integer> sort){
+//        if( vis.contains(node) ) return sort;
+//
+//        vis.add(node);
+//
+//        List<Integer> deps = map.get(node);
+//
+//        for( int dep: deps ){
+//            topSort(dep, sort);
+//        }
+//
+//        sort.add(node);
+//
+//        return sort;
+//    }
+
 }

@@ -180,7 +180,128 @@ public class Q7BuildOrder {
     }
 
     public static void main (String[] args){
-        new Q7BuildOrder().run();
+        new Q7BuildOrder().runTopSort();
+    }
+
+    public void runTopSort(){
+        int[] order = findOrder(5, new int[][]{{0, 1}, {1, 2}, {2, 3}, {3, 2}, {1, 4}, {4, 3}});
+        System.out.println(Arrays.toString(order));
+        vis.clear();map.clear();topSort.clear();
+        order = findOrder(5, new int[][]{{0,1},{1,2},{2,3},{1,4},{4,3}});
+        System.out.println(Arrays.toString(order));
+        vis.clear();map.clear();topSort.clear();
+        order = findOrder(6, new int[][]{{0,1},{1,2},{2,3},{1,4},{4,3}});
+        System.out.println(Arrays.toString(order));
+    }
+
+
+    Map<Integer, List<Integer>> map = new HashMap<>();//{{1->0},{2->0},{3->[1,2]}}
+    int numCourses;
+    int[][] prerequisites;
+
+    public int[] findOrder(int numCourses, int[][] prerequisites) {
+        this.numCourses = numCourses;
+        this.prerequisites = prerequisites;
+
+        createMap(prerequisites);
+        if(hasCycle()) return new int[]{};
+
+        vis.clear();
+        int[] arr = new int[numCourses];
+        int i = 0;
+
+        for( int key: map.keySet() ){
+            if( !vis.contains(key) ) {
+                List<Integer> tops = topSort(key, new LinkedList<>());
+
+                for(int t: tops){
+                    arr[i++] = t;
+                }
+            }
+        }
+
+        return arr;
+    }
+
+
+    public boolean hasCycle(int numCourses){
+
+        for( int i = 0; i < numCourses; i++ ){
+            if( isCycle(i, i, new HashSet<>()) ) return true;
+        }
+
+        return false;
+    }
+
+    public boolean isCycle(int node, int n, Set<Integer> vis){
+        if( node == n && vis.contains(node) ) return true;
+        if( vis.contains(n) ) return false;
+
+
+        vis.add(n);
+
+        List<Integer> deps = map.get(n);
+        for(int i = 0; i < deps.size(); i++ ){
+            if( isCycle(node, deps.get(i), vis) ) return true;
+        }
+
+        return false;
+    }
+
+    public void createMap(int[][] prerequisites){
+        for( int i = 0; i < numCourses; i++ ){
+            if( !map.containsKey(i) ) map.put(i, new ArrayList<>());
+        }
+
+        for( int i = 0; i < prerequisites.length; i++ ){
+            map.get(prerequisites[i][0]).add(prerequisites[i][1]);
+        }
+    }
+
+    Set<Integer> vis = new HashSet<>();
+
+    public boolean hasCycle(){
+        for( int key: map.keySet() ) {
+            if( isCycle(key, key) ){
+                return true;
+            }
+            vis.clear();
+        }
+
+        return false;
+    }
+
+    public boolean isCycle(int node, int startNode){
+        if( node == startNode && vis.contains(node) ) return true;
+        if( vis.contains(node) ) return false;
+
+        vis.add(node);
+
+        List<Integer> deps = map.get(node);
+
+        for( int dep: deps ){
+            if( isCycle(dep, startNode) ) return true;
+        }
+
+        return false;
+    }
+
+    List<Integer> topSort = new LinkedList<>();
+
+    public List<Integer> topSort(int node, List<Integer> sort){
+        if( vis.contains(node) ) return sort;
+
+        vis.add(node);
+
+        List<Integer> deps = map.get(node);
+
+        for( int dep: deps ){
+            topSort(dep, sort);
+        }
+
+        sort.add(node);
+
+        return sort;
     }
 
 }
