@@ -60,5 +60,38 @@ public class L17LetterCombinationOfPhoneNumber {
         return m;
     }
 
+//    Map<Integer, List<String>> m = new HashMap<>();
+//
+//    public List<String> letterCombinations(String digits) {
+//        List<String> res = new LinkedList<>();
+//
+//        if( digits.length() == 0 ) return res;
+//
+//        getTelephoneHashmap();
+//
+//        res = m.get(digits.charAt(0)-'0');
+//
+//        for( int i = 1; i < digits.length(); i++ ){
+//            List<String> l2 = m.get(digits.charAt(i)-'0');
+//            res = letterCombinations(res, l2);
+//        }
+//
+//        return res;
+//    }
+//
+//    public List<String> letterCombinations(List<String> l1, List<String> l2) {
+//        List<String> combs = new LinkedList<>();
+//
+//        for( int i = 0; i < l1.size(); i++ ){
+//            for( int j = 0; j < l2.size(); j++ ){
+//                String s = l1.get(i);
+//                s += l2.get(j);
+//                combs.add(s);
+//            }
+//        }
+//
+//        return combs;
+//    }
+
 
 }
