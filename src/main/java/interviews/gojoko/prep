@@ -1,0 +1,24 @@
+
+
+Important point:
+1. This interview, scheduled for 90 minutes,
+2. will be conducted by a panel of two interviewers from Gojoko Technologies .
+
+During this session, we will cover:
+
+    1. resume --> 3 days
+        a. Discussion on your resume --> Prepare everything in resume --> Challenges, Solutions,
+    Contribution, What was the project about
+        b. selected project Your role and contributions in the project
+        c. highlighting your contributions and technical insights.
+    2. Technical queries related to Spring, Java, AWS, Microservices concepts --> 4 days
+        a. go through spring interview questions, prep material, do one small project on spring
+        b. Java - Iterable, Iterator, Streams, Map reduce, Parallel
+        c. Microservices interview questions -- Security, load balancing, routing
+        d. Hibernate --> SQL
+    3. potentially revisiting the coding questions from Round 1
+    4. Your perspectives on TDD will also be valuable for our discussion --> 4hrs
+        a. What is TDD and what are its benefits and drawbacks
+
+As a preparation to describing your project, feel free to create an architecture diagram
+using any of the tools.
