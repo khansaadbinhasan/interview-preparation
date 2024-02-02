@@ -1,0 +1,140 @@
+String a = "hello world  "
+a.trim()
+print (a)
+
+"hello world"
+
+---------------------------------------
+
+
+1 -> 2 -> 3 -> 4 -> 5 -> 6
+          ^              ^
+          |              |
+          ________________
+
+
+Set<Node>
+
+tortoise and hare
+fast2 and slow1
+O(n), O(1)
+
+Node{
+    int val;
+    Node next;
+}
+
+//return true when there is acycle else false
+public boolean detectCycle(Node head){
+
+    if( head == null ) return false;
+
+
+    Node slow = head;//4
+    Node fast = head.next;//4
+
+    while( slow != null && fast != null ){
+        if( slow == fast ) return true;
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    return false;
+}
+
+1,2,3,4,7,6,5,....N
+
+
+---------------------------------------
+
+1 to n
+1 to 100
+
+
+int[] nums = [1,2,3,4,,,,....,100] --> 99 numbers and find missing one
+
+count sort --> freq arr --> 0 to N -->
+
+1 to n --> total --> (n*(n+1)/2)
+nums --> sum --> sum
+total - sum
+
+//7
+public int findMissingNumber(int[] nums){//1,2,3,6,5,4,8,9,10 --> 9
+    int n = nums.length+1;//10
+    int sumN = (n*(n+1)/2);//55
+
+    int sum = 0;//38\\48
+
+    for( int i = 0; i < nums.length; i++ ){
+        sum += nums[i];
+    }
+
+    return sumN-sum;
+}
+
+---------------------------------------
+
+Use case:
+1. User enters the card
+2. User enters pin
+3. User enters amount
+4. User get the money from ATM
+5. Money gets deducted from bank account
+
+1. Security -->
+
+2. Network Testing --> Low bandwith
+
+3. Feature testing
+i User should be able to deduct more than his balance
+ii User enter card and able to deduct correct amount
+
+4. Performance
+
+5. infra of ATM machine
+
+---------------------------------------
+
+employee_table
+id, name, dept, sal, mgr_id
+1, saad
+
+
+index
+1-500,P1
+500-1000,P2
+
+
+manger salary of saad
+
+join table
+
+
+select E2.salary from employee_table E1 JOIN employee_table E2 ON E1.mgr_id=E2.id WHERE E1.name = "saad";
+
+---------------------------------------
+
+A    B    C    D
+1    2    5    10
+
+D+C+B=19
+
+D,A - 10
+A - 1
+C,A - 5
+A - 1
+B,A - 2
+
+A
+B,C,D
+
+
+
+17
+B,A - 2
+A - 1
+C,D - 10
+B - 2
+B,A - 2
+

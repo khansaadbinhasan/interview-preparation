@@ -55,7 +55,23 @@ public class Experimenting {
 
         return a;
     }
+//    }
+//        Set<String> s1 = new HashSet<>(Arrays.asList("a","b","c","d"));
+//        Set<String> s2 = new HashSet<>(Arrays.asList("a","b","c"));
+//        Set<String> s3 = new HashSet<>(Arrays.asList("d"));
+//
+//        s1.retainAll(s2);
+//
+//        System.out.println(s1);
+//
+//        s1.addAll(s3);
+//
+//        System.out.println(s1);
+
     }
+
+
+//}
 
 
 
