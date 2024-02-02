@@ -1,0 +1,131 @@
+string - "saad is giving an interview, a"
+reversed on their place and if after replacement if starting from vowel then print
+
+daas si gnivig na weivretni a
+
+a
+
+public void reverseStr(String s){
+
+	String[] split = s.split(" ");
+
+	StringBuilder print = new StringBuilder();
+
+	for( String word: split ){
+		if( isVowel(word.charAt(word.length()-1)) ) print.append(reverse(word)).append(" ");
+	}
+
+	Arrays.toStream(split).forEach( word -).filter(word -> isVowel(word.charAt(word.length()-1)))
+
+
+}
+
+public String reverse(String s){
+
+}
+
+public boolean isVowel(char c){
+	return c == 'a' || c  == 'A' || c == 'e';
+}
+
+
+for( Employee e: employeeList ){
+	if(e.getSalary() > 10000 && e.getSalary() < 15000 && e.getDepartment().equals("IT") ){
+		sout(e)
+	}
+}
+
+lambda
+
+Anonymous class --> functional interface
+
+
+function thwos
+\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.ksbh.noted.controller;
+
+import com.ksbh.noted.entity.A;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class AController {
+
+    @GetMapping("/a")
+    public A storeB(){
+        //B b = Rest client .get (/b)
+        //horizontal scaling --> consumer perspective
+        //separtion of concern
+        //robust to failure
+        //repetition in feature -->
+        //consumes more compute system --> duplication --> cost perspective
+        //It can be slower --> network calls --> optimize of level of calls
+
+        public void reverseStr(String s){
+
+            String[] split = s.split(" ");
+
+            StringBuilder print = new StringBuilder();
+
+            for( String word: split ){
+                if( isVowel(word.charAt(word.length()-1)) ) print.append(reverse(word)).append(" ");
+            }
+
+//            Arrays.stream(split)
+//                    .filter(word -> isVowel(word.charAt(word.length()-1)))
+//                    .collect()
+
+//            Employee(salary, firstName, lastName)
+//            list of employees
+//              print employees salary 10-15k and department is IT
+
+        }
+
+
+
+    }
+
+    public String reverse(String s){
+        return "";
+    }
+
+    Set<Character> vowels = new HashSet<>();
+
+    public boolean isVowel(char c){
+        return c == 'a' || c  == 'A' || c == 'e';
+    }
+
+}
+
+
+
+package com.ksbh.noted.entity;
+
+import jakarta.persistence.Entity;
+
+@Entity
+public class A {
+
+    int id;
+
+}
+
+
+
+
