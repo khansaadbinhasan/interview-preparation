@@ -19,7 +19,6 @@ public class L1614MaxDepthParanthesis {
 
             if( c == ')' ) currDepth--;
         }
-
         return maxDepth;
     }
 
