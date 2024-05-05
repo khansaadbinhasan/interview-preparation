@@ -1,7 +1,5 @@
 package leetcode.easy;
 
-import java.util.*;
-
 public class L108ConvertArrayToBST {
 
     public class TreeNode {

@@ -1,8 +1,6 @@
 package leetcode.easy;
 
 
-import java.util.Arrays;
-
 //1
 //2
 //0

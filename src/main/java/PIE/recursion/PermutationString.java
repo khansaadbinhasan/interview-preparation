@@ -1,7 +1,5 @@
 package PIE.recursion;
 
-import java.util.*;
-
 public class PermutationString {
 
 

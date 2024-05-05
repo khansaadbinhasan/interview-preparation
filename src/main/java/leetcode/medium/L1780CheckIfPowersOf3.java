@@ -1,7 +1,5 @@
 package leetcode.medium;
 
-import java.lang.reflect.Array;
-
 //12
 //91
 //21

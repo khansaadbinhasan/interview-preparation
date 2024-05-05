@@ -1,7 +1,5 @@
 package leetcode.medium;
 
-import java.util.*;
-
 public class L1706MinOpsTodoPermutation {
 
     public static void main(String[] args) {

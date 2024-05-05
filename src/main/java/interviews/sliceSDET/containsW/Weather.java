@@ -1,7 +1,5 @@
 package interviews.sliceSDET.containsW;
 
-import java.util.Comparator;
-
 public class Weather {
     String cityName;
     int temp;

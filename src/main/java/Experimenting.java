@@ -8,19 +8,10 @@ public class Experimenting {
     }
 
     public void run() {
-//        char[][] board = {
-//                {'A', 'B', 'C', 'E'},
-//                {'S', 'F', 'E', 'S'},
-//                {'A', 'D', 'E', 'E'}
-//        };
-        System.out.println("abz".compareTo("ababz"));
-
-//        new StringBuilder().replace()
+        System.out.println(Arrays.equals(new int[]{1,2}, new int[]{1,2}));
+        System.out.println(Arrays.equals(new int[]{1,2}, new int[]{2,2}));
     }
 
-    public String getArray(String arr){
-        return arr.replaceAll("\\[","\\{").replaceAll("\\]","\\}");
-    }
 }
 
 

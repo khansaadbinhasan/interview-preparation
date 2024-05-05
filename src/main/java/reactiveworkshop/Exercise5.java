@@ -1,4 +1,4 @@
-package javabrains.reactive.reactiveworkshop;
+package reactiveworkshop;
 
 import org.reactivestreams.Subscription;
 import reactor.core.publisher.BaseSubscriber;
