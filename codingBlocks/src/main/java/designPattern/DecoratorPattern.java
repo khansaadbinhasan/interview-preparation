@@ -35,7 +35,7 @@ public class DecoratorPattern {
         }
 
         public void authorizedUser(){
-            System.out.println("Authorizing User");
+            System.out.println("Authorizing interviews.loadshareSDET3.User");
         }
 
         public void display() {
@@ -50,7 +50,7 @@ public class DecoratorPattern {
         }
 
         public void authenticateUser(){
-            System.out.println("Authenticating User");
+            System.out.println("Authenticating interviews.loadshareSDET3.User");
         }
 
         public void display() {

@@ -11,6 +11,14 @@ import java.util.Stack;
 //[[5,1,9,11,13],[2,4,8,10,17],[13,3,6,7,6],[15,14,12,16,8],[15,14,12,16,1]]
 public class L48RotateImage {
 
+    public static void main(String[] args) {
+        new L48RotateImage().run();
+    }
+
+    public void run(){
+        rotate2(new int[][]{{1,2,3},{4,5,6},{7,8,9}});
+    }
+
     public void rotate(int[][] mat) {
         int N = mat.length;
 
@@ -61,5 +69,41 @@ public class L48RotateImage {
         return new int[]{y, N-x-1};
     }
 
+
+    public void rotate2(int[][] mat) {
+
+        int start = 0;
+        int end = mat.length-1;
+        int N = mat.length;
+
+        while( start <= end ){
+            for( int j = start; j < end; j++ ){
+                int[] ijN = getNext(start, j, N);
+
+                int iN = ijN[0];
+                int jN = ijN[1];
+                int num = mat[start][j];
+                int next = mat[iN][jN];
+
+                while( !(iN == start && jN == j) ){
+                    mat[iN][jN] = num;
+
+                    ijN = getNext(iN, jN, N);
+                    iN = ijN[0];
+                    jN = ijN[1];
+
+                    num = next;
+                    next = mat[iN][jN];
+
+                    if( iN == start && jN == j ) mat[iN][jN] = num;
+                }
+
+
+            }
+
+            start++;
+            end--;
+        }
+    }
 
 }

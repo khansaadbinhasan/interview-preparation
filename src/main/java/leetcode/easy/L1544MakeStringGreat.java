@@ -47,5 +47,27 @@ public class L1544MakeStringGreat {
         return c >= 'A' && c <= 'Z';
     }
 
+    public String makeGood2(String s) {
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(s.charAt(0));
+
+        for(int i = 1; i < s.length(); i++){
+            char curr = s.charAt(i);
+
+            if( sb.isEmpty() ) {
+                sb.append(curr);
+                continue;
+            }
+
+            int endInd = sb.length()-1;
+            char end = sb.charAt(endInd);
+            if( curr - 'A' == end - 'a' || curr - 'a' == end - 'A' )
+                sb.deleteCharAt(endInd);
+            else sb.append(curr);
+        }
+
+        return sb.toString();
+    }
 
 }

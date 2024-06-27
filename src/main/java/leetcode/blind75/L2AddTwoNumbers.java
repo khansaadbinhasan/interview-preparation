@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.blind75;
 
 //[2,4,3]
 //[5,6,4]

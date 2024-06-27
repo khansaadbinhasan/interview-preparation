@@ -1,7 +1,5 @@
 package leetcode.easy;
 
-import java.util.PriorityQueue;
-
 
 //[1,2,2,1]
 //1

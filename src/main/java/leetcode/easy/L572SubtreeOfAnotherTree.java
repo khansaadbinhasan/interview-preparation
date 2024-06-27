@@ -59,4 +59,20 @@ public class L572SubtreeOfAnotherTree {
     }
 
 
+    public boolean isSubtree3(TreeNode root, TreeNode subRoot) {
+        if( root == subRoot ) return true;
+        if( root == null ) return false;
+        if( subRoot == null ) return false;
+
+        return isEqual(root, subRoot) || isSubtree3(root.left, subRoot) || isSubtree3(root.right, subRoot);
+    }
+
+    public boolean isEqual(TreeNode root, TreeNode subRoot){
+        if( root == subRoot ) return true;
+        if( root == null ) return false;
+        if( subRoot == null ) return false;
+
+        return ( root.val == subRoot.val ) && isEqual(root.left, subRoot.left) && isEqual(root.right, subRoot.right);
+    }
+
 }
