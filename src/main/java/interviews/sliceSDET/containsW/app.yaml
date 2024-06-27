@@ -1,0 +1,18 @@
+compute: 4 cores
+storage: 3gb
+DBs:
+  service: "abc"
+  ref: "somedb"
+DockerFile:
+  path: "a/b/c"
+commands: "gradlew build"
+
+com.abc.Test1
+com.abc.Test2
+
+im test repo --> jar --> repository
+
+executor service
+1. api --> Call this and execute this test on this jar
+jar version
+test path

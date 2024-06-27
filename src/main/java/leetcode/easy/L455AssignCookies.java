@@ -2,9 +2,6 @@ package leetcode.easy;
 
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 //[1,2,3]
 //[1,1]

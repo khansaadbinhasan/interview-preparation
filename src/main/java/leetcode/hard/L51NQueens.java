@@ -1,7 +1,5 @@
 package leetcode.hard;
 
-import java.util.*;
-
 public class L51NQueens {
 
     public static void main(String[] args) {

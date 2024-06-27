@@ -1,0 +1,125 @@
+Saad Hasan
+
+APi --> response for weather
+
+API1 - [
+
+{
+	Place: Punjab,
+  Date: 2024/01/01,
+  Weather: COLD
+},
+{
+},
+{},
+
+{}
+
+]
+
+
+
+API2 - [
+{},
+
+{},
+{
+	Place: Punjab,
+  Date: 2024/01/01,
+  Weather: COLD
+},
+
+{}
+]
+
+CityWeather implements Comparable<Place>{
+place,
+date, weather
+
+@Override
+public int equals(Place p){
+	this.place == p.place
+}
+
+@Override
+public int comparator(){
+
+}
+
+}
+
+public
+List<Place> set1 = Xall API 1
+List<Place> set2 = Xall API 2
+
+set1.size() == set2.size()
+
+Assert.equals(set1, set2)
+
+
+
+set --> {1,2,3}
+set2 --> {1,2,3}
+
+
+
+public boolean areListEqual(List<CityWeather> l1, List<CityWeather> l2){
+
+  //Have a compaaotr in city weather that will help in sorting
+
+  //O(n2)
+  //O(n) user sest for l2
+  for( CityWeather c1: l1 ){
+  	for( CityWeather c2: l2 ){
+    	if( !(c2.place == c1.place && c2.date == c1.weather && c1.weather == c2.weather) ){
+      	return false;
+			}
+    }
+  }
+
+
+}
+
+public
+-------------------------------------------------
+Database:
+Table = Students
+Columns = Id, Name, Class, Subject, Marks
+
+
+
+
+
+
+
+
+select * from Students Where split(" ")[0][1] == 's', 'h'
+
+select COUNT(id) from Students GROUP BY id;
+select Name, MAX(sum) from (select name, Class, SUM(Marks) as sum from Students GROUP BY id) GROUP BY Class;
+---------------------------------------------
+Puzzle
+50 doors
+50 people
+All doors are closed
+
+0->1,1,1,1,1
+1->0,0,0,0,0
+2->0,1,0,1,0
+3->0,1,1,1,0
+4->0,1,1,0,0
+5->0,1,1,0,1
+
+50 -> a,b,5,d,e,f --> Even closed, odd open
+all multiples of any number
+how many factors does it have
+8->1,2,4,8
+7->1,7
+6->1,2,3,6
+9->1,3,9
+16->odd,even
+1,4,9,16,25,36,49 --> perfect squares
+
+
+
+

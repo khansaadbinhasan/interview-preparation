@@ -143,4 +143,35 @@ public class L200NumberOfIslands {
             }
         }
     }
+
+
+    int count = 0;
+
+    public int numIslands(char[][] grid) {
+        for( int i = 0; i < grid.length; i++ ){
+            for( int j = 0; j < grid[i].length; j++ ){
+                if( grid[i][j] == '1' ) {
+                    boolean[][] visited = new boolean[grid.length][grid[i].length];
+                    dfs(grid, i, j, visited);
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    public void dfs(char[][] grid, int i, int j, boolean[][] visited){
+        if( i < 0 || j < 0 || i >= grid.length || j >= grid[i].length ) return;
+        if( visited[i][j] ) return;
+        if(grid[i][j] == '0') return;
+
+        grid[i][j] = '5';
+        visited[i][j] = true;
+
+        dfs(grid, i-1, j, visited);
+        dfs(grid, i+1, j, visited);
+        dfs(grid, i, j-1, visited);
+        dfs(grid, i, j+1, visited);
+    }
 }

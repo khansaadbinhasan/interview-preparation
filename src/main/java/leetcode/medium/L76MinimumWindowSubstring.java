@@ -1,7 +1,5 @@
 package leetcode.medium;
 
-import java.util.HashMap;
-
 //"ADOBECODEBANC"
 //"ABC"
 //"a"

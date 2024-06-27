@@ -41,4 +41,19 @@ public class L2000ReversePrefixOfWord {
 
         return String.valueOf(wordArr);
     }
+
+    public String reversePrefix2(String word, char ch) {
+        StringBuilder sb = new StringBuilder();
+        boolean seen = false;
+
+        for(char c: word.toCharArray()){
+            sb.append(c);
+            if( c == ch && !seen ){
+                sb.reverse();
+                seen = true;
+            }
+        }
+
+        return sb.toString();
+    }
 }

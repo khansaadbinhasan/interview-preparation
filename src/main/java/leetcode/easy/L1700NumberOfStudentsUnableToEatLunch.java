@@ -46,4 +46,44 @@ public class L1700NumberOfStudentsUnableToEatLunch {
 
     }
 
+
+    public static void main(String[] args) {
+        new L1700NumberOfStudentsUnableToEatLunch().run();
+    }
+
+    public void run(){
+        System.out.println(countStudents2(new int[]{1,1,1,0,0,1}, new int[]{1,0,0,0,1,1}));
+    }
+
+    public int countStudents2(int[] students, int[] sandwiches) {
+        Queue<Integer> studentsQ = new LinkedList<>();
+        Queue<Integer> sandwichesQ = new LinkedList<>();
+
+        for( int i = 0; i < students.length; i++ ){
+            studentsQ.add(students[i]);
+        }
+
+        for( int i = 0; i < sandwiches.length; i++ ){
+            sandwichesQ.add(sandwiches[i]);
+        }
+
+        int size = studentsQ.size();
+
+        while( !studentsQ.isEmpty() ){
+            if( studentsQ.peek() == sandwichesQ.peek() ){
+                studentsQ.poll();
+                sandwichesQ.poll();
+                size = studentsQ.size();
+            }
+
+            else {
+                if( size == 0 ) return studentsQ.size();
+                studentsQ.add(studentsQ.poll());
+                size--;
+            }
+        }
+
+        return 0;
+    }
+
 }
