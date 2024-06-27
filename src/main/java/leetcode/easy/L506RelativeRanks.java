@@ -48,5 +48,36 @@ public class L506RelativeRanks {
 
     }
 
+    public String[] findRelativeRanks2(int[] score) {
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+                new Comparator<int[]>(){
+                    @Override
+                    public int compare(int[] s1, int[] s2){
+                        return Integer.compare(s2[0], s1[0]);
+                    }
+                }
+        );
+
+        for( int i = 0; i < score.length; i++ ){
+            maxHeap.add(new int[]{score[i], i});
+        }
+
+        String[] placements = new String[score.length];
+
+        int i = 1;
+
+        while( i <= score.length ){
+            int[] ind = maxHeap.poll();
+
+            if( i == 1 ) placements[ind[1]] = "Gold Medal";
+            else if( i == 2 ) placements[ind[1]] = "Silver Medal";
+            else if( i == 3 ) placements[ind[1]] = "Bronze Medal";
+            else placements[ind[1]] = String.valueOf(i);
+
+            i++;
+        }
+
+        return placements;
+    }
 
 }

@@ -1,6 +1,5 @@
 package CTCI.treesAndGraphs;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Q11RandomNode {

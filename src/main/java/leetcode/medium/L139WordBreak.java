@@ -18,6 +18,10 @@ import java.util.*;
 //["a"]
 //"a"
 //["b"]
+//"aaaaaaa"
+//["aaaa","aa"]
+//"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab"
+//["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"]
 public class L139WordBreak {
 
     public static void main(String[] args) {
@@ -25,6 +29,7 @@ public class L139WordBreak {
     }
 
     public void run(){
+        System.out.println(wordBreak3("leetcode", Arrays.asList("leet", "code")));
     }
 
     int[] breakPossible;
@@ -73,5 +78,32 @@ public class L139WordBreak {
 
         return false;
     }
+
+    Boolean[] isPossible;
+
+    public boolean wordBreak3(String s, List<String> wordDict) {
+        isPossible = new Boolean[s.length()];
+        Arrays.fill(isPossible, null);
+
+        return wordBreakDP(s, wordDict, 0);
+    }
+
+    public boolean wordBreakDP(String s, List<String> wordDict, int i) {
+        if( i >= s.length() ) return true;
+        if( isPossible[i] != null ) return isPossible[i];
+
+        for( String word: wordDict ){
+            if( s.substring(i).startsWith(word) ) {
+                if( wordBreakDP(s, wordDict, i+word.length()) )
+                    return isPossible[i+word.length()-1]=true;
+            }
+        }
+
+        return isPossible[i]=false;
+    }
+
+//    public boolean contains(String s, String t){
+//        return s.length() > t.length() && s.startsWith(t);
+//    }
 
 }

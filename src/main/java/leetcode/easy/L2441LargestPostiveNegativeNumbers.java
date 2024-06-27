@@ -29,4 +29,24 @@ public class L2441LargestPostiveNegativeNumbers {
         return max == -2000? -1: max;
 
     }
+
+    public int findMaxK2(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+
+        int max = Integer.MIN_VALUE;
+        boolean found = false;
+
+        for( int i = 0; i < nums.length; i++ ){
+            set.add(nums[i]);
+        }
+
+        for( int i = 0; i < nums.length; i++ ){
+            if( nums[i] >= max && set.contains(-nums[i]) ) {
+                max = nums[i];
+                found = true;
+            }
+        }
+
+        return found ? max: -1;
+    }
 }

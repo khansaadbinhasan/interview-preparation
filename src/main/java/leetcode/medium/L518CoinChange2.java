@@ -64,5 +64,46 @@ public class L518CoinChange2 {
 
     }
 
+    public static void main(String[] args) {
+        new L518CoinChange2().run();
+    }
+
+    public void run(){
+        System.out.println(change3(5, new int[]{1,2,5}));
+    }
+
+
+    Map<Integer, Integer> dp = new HashMap<>();
+    Set<String> set = new HashSet<>();
+
+    public int change3(int amount, int[] coins) {
+        int change = change3(amount, coins, new int[5001]);
+        print(set);
+        return change;
+    }
+
+    public int change3(int amount, int[] coins, int[] freq) {
+        if( amount < 0 ) return 0;
+        if( amount == 0 ) {
+            set.add(Arrays.toString(freq));
+            return set.size();
+        }
+        if( dp.containsKey(amount) ) return dp.get(amount);
+
+        for( int i = 0; i < coins.length; i++ ){
+            freq[coins[i]]++;
+            change3(amount-coins[i], coins, freq);
+            freq[coins[i]]--;
+        }
+
+        dp.put(amount, set.size());
+
+        return set.size();
+    }
+
+    public void print(Set<String> set){
+        for( String s: set )
+            System.out.println(s.replaceAll("0,",""));
+    }
 
 }
