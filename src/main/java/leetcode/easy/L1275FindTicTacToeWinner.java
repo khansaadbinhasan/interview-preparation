@@ -1,5 +1,6 @@
 package leetcode.easy;
 
+import java.util.*;
 
 public class L1275FindTicTacToeWinner {
 
@@ -116,5 +117,44 @@ public class L1275FindTicTacToeWinner {
 //        }
 //
 //    }
+
+    public String tictactoe(int[][] moves) {
+        char[][] tictac = new char[3][3];
+        char move = 'X';
+
+        for( int i = 0; i < tictac.length; i++ ){
+            Arrays.fill(tictac[i], '.');
+        }
+
+        for( int i = 0; i < moves.length; i++ ){
+            tictac[moves[i][0]][moves[i][1]] = move;
+            move = move == 'X' ? 'O': 'X';
+        }
+
+        if( isWin(tictac, 'X') ) return "A";
+        if( isWin(tictac, 'O') ) return "B";
+        if( moves.length != 9 ) return "Pending";
+
+        return "Draw";
+
+    }
+
+    public boolean isWin(char[][] tictac, char player){
+        //Search rows
+        for( int i = 0; i < tictac.length; i++ ){
+            if( tictac[i][0] == player && tictac[i][1] == player && tictac[i][2] == player ) return true;
+        }
+
+        //Search columns
+        for( int j = 0; j < tictac[0].length; j++ ){
+            if( tictac[0][j] == player && tictac[1][j] == player && tictac[2][j] == player ) return true;
+        }
+
+        //Search Diagonals
+        if( tictac[0][0] == player && tictac[1][1] == player && tictac[2][2] == player ) return true;
+        if( tictac[2][0] == player && tictac[1][1] == player && tictac[0][2] == player ) return true;
+
+        return false;
+    }
 
 }

@@ -16,7 +16,7 @@ public class L47Permutations2 {
     public void run(){
         LinkedList<Integer> nums = new LinkedList<>();
 
-        nums.add(1); nums.add(2); nums.add(3);
+        nums.add(1); nums.add(1); nums.add(2);
 
         System.out.println(permute(nums));
     }
