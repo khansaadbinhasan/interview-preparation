@@ -4,13 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>io.javabrains</groupId>
     <artifactId>reactive-example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <groupId>groupId</groupId>
+    <artifactId>interview-prep</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -43,6 +48,7 @@
             <version>5.8.0</version> <!-- Use the latest version available -->
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -51,4 +57,5 @@
         </dependency>
     </dependencies>
 
+    
 </project>
