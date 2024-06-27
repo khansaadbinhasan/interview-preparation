@@ -9,6 +9,48 @@ package leetcode.medium;
 //[1,2,0,1,2,0,0,0,2,2]
 public class L979DistributeCoinsInBinaryTree {
 
+
+    public int distributeCoins2(TreeNode root) {
+        if( root == null ) return 0;
+
+        int coins = 0;
+
+        int leftVal = distributeCoins(root.left);
+        int rightVal = distributeCoins(root.right);
+        coins += Math.abs(leftVal);
+        coins += Math.abs(rightVal);
+
+        root.val += leftVal+rightVal-1;
+
+        return coins+root.val;
+    }
+
+
+    public void run2(){
+        TreeNode root = new TreeNode(0);
+        root.left = new TreeNode(0);
+        root.right = new TreeNode(0);
+        root.left.left = new TreeNode(0);
+        root.left.right = new TreeNode(0);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(7);
+
+        System.out.println(distributeCoins2(root));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public class TreeNode {
       int val;
       TreeNode left;
@@ -23,7 +65,7 @@ public class L979DistributeCoinsInBinaryTree {
     }
 
     public static void main(String[] args) {
-        new L979DistributeCoinsInBinaryTree().run();
+        new L979DistributeCoinsInBinaryTree().run2();
     }
 
     public void run(){
@@ -93,5 +135,26 @@ public class L979DistributeCoinsInBinaryTree {
         count++;
 
         return nodeCount(root.right, nodeCount(root.left, count));
+    }
+
+    public int distributeCoins3(TreeNode root) {
+        makeVals(root);
+        return doSum(root);
+    }
+    public void makeVals(TreeNode root) {
+        if( root == null ) return;
+
+        makeVals(root.left);
+        makeVals(root.right);
+
+        root.val += -1;
+        if( root.left != null ) root.val += root.left.val;
+        if( root.right != null ) root.val += root.right.val;
+    }
+
+    public int doSum(TreeNode root){
+        if( root == null ) return 0;
+
+        return Math.abs(root.val) + doSum(root.left) + doSum(root.right);
     }
 }

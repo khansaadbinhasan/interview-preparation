@@ -8,13 +8,28 @@ import java.util.*;
 //[[3,0],[3,1],[3,2],[3,4],[5,4]]
 public class L310MinHeightTrees {
 
+    public static void main(String[] args) {
+        Set<Integer> set1 = new HashSet<>();
+        Set<Integer> set2 = new HashSet<>();
+
+        set1.add(1);set1.add(2);set1.add(3);
+        set2.add(2);set2.add(3);set2.add(4);
+
+//        set1.retainAll(set2);
+        set1.removeAll(set2);
+
+        System.out.println(set1);
+
+    }
+
+
     List<Integer> ans = new LinkedList<>();
     Map<Integer, List<Integer>> map = new HashMap<>();
     int n;
 
-    public static void main(String[] args) {
-        new L310MinHeightTrees().run();
-    }
+//    public static void main(String[] args) {
+//        new L310MinHeightTrees().run();
+//    }
 
     public void run(){
 //        System.out.println(findMinHeightTrees(4, new int[][]{{1,0},{1,2},{1,3}}));

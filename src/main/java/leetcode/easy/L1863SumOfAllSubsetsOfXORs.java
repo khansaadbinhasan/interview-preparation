@@ -12,8 +12,57 @@ public class L1863SumOfAllSubsetsOfXORs {
 //        LinkedList<LinkedList<Integer>> ll = new LinkedList<>();
 //        ll.add(new LinkedList<>());
 //        System.out.println(backtrack(new int[]{1,2,3}, 0, ll));
-        System.out.println(subsetXORSum(new int[]{1,3}));
+        System.out.println(subsetXORSum2(new int[]{1,2,3,4,5,6,7,8,9,10,11,12}));
+        System.out.println(count);
     }
+
+
+    public int subsetXORSum3(int[] nums) {
+        return subsetXORSum(nums, 0, nums[0]);
+    }
+
+    public int subsetXORSum(int[] nums, int i, int xor) {
+        if( i == nums.length ) return xor;
+
+        int xor1 = subsetXORSum(nums, i+1, xor);
+        int xor2 = subsetXORSum(nums, i+1, xor^nums[i]);
+
+        return xor1 + xor2;
+    }
+
+
+    public int subsetXORSum2(int[] nums) {
+        return subsetXORSum(nums, 0, new LinkedList<>());
+    }
+
+    int count = 0;
+
+    public int subsetXORSum(int[] nums, int i, List<Integer> lst) {
+        if( i == nums.length ) return doXor(lst);
+
+        int xor1 = subsetXORSum(nums, i+1, lst);
+        lst.add(nums[i]);
+        int xor2 = subsetXORSum(nums, i+1, lst);
+
+        count++;
+
+        return xor1 + xor2;
+    }
+
+    public int doXor(List<Integer> lst){
+        if( lst.size() == 0 ) return 0;
+        int xor = lst.get(0);
+        for( int i = 1; i < lst.size(); i++ ){
+            xor ^= lst.get(i);
+        }
+
+        return xor;
+    }
+
+
+
+
+
 
     public LinkedList<LinkedList<Integer>> backtrack(int[] lst, int i, LinkedList<LinkedList<Integer>> ll){
         if( i == lst.length ) return ll;

@@ -31,7 +31,7 @@ public class Exercise4 {
 //        num = integerMono.blockOptional().get();
 //        System.out.println("optional " + num);
 //
-//        User foo = ReactiveSources.userMono().block();
+//        interviews.loadshareSDET3.User foo = ReactiveSources.userMono().block();
 
 //        integerMono
 //                .subscribe(

@@ -76,10 +76,10 @@ public int findMissingNumber(int[] nums){//1,2,3,6,5,4,8,9,10 --> 9
 ---------------------------------------
 
 Use case:
-1. User enters the card
-2. User enters pin
-3. User enters amount
-4. User get the money from ATM
+1. interviews.loadshareSDET3.User enters the card
+2. interviews.loadshareSDET3.User enters pin
+3. interviews.loadshareSDET3.User enters amount
+4. interviews.loadshareSDET3.User get the money from ATM
 5. Money gets deducted from bank account
 
 1. Security -->
@@ -87,8 +87,8 @@ Use case:
 2. Network Testing --> Low bandwith
 
 3. Feature testing
-i User should be able to deduct more than his balance
-ii User enter card and able to deduct correct amount
+i interviews.loadshareSDET3.User should be able to deduct more than his balance
+ii interviews.loadshareSDET3.User enter card and able to deduct correct amount
 
 4. Performance
 
